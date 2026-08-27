@@ -1,4 +1,21 @@
-byte	8 bits	byte x = 10;	Inteiro pequeno
+byte 8 bits Inteiro pequeno
+
+O que é um Byte?
+Um byte ocupa 8 bits (1 byte) de memória e pode armazenar valores de:
+-127 até 128
+
+Se o usuário digitar um valor fora dessa escopo o programa vai dar erro de execução.
+
+Por que o intervalo é -128 até 127?
+Um byte possui 8 bits:
+00000000
+
+Como o Java usa representação de complemento de dois para inteiros com sinal, temos:
+128 valores negativos → -128 até -1
+128 valores não negativos → 0 até 127
+Total:
+256 valores possíveis (2⁸ = 256).
+
 short	16 bits	short x = 1000;	Inteiro
 int	32 bits	int x = 100000;	Inteiro, o mais usado
 long	64 bits	long x = 100000L;	Inteiro grande
