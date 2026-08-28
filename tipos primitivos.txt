@@ -1,25 +1,321 @@
-byte 8 bits Inteiro pequeno
+byte Inteiro pequeno
 
 O que é um Byte?
-Um byte ocupa 8 bits (1 byte) de memória e pode armazenar valores de:
--127 até 128
-
-Se o usuário digitar um valor fora dessa escopo o programa vai dar erro de execução.
+    Um byte ocupa 8 bits (1 byte) de memória e pode armazenar valores de:
+    -128 até 127
+    Se o usuário digitar um valor fora dessa escopo o programa vai dar erro de execução.
 
 Por que o intervalo é -128 até 127?
-Um byte possui 8 bits:
-00000000
+    Um byte possui 8 bits:
+    00000000
+    Isso dá 256 valores possíveis (2⁸ = 256).
+    Como O byte utiliza 8 bits com sinal, representados pelo sistema de complemento de dois.
+    fica de -128 (10000000 representação em binário) até -1 (11111111 representação em binário) 
+    para negativos e 0 (00000000 representação em binário) até +127 (01111111 representação em binário)
 
-Como o Java usa representação de complemento de dois para inteiros com sinal, temos:
-128 valores negativos → -128 até -1
-128 valores não negativos → 0 até 127
-Total:
-256 valores possíveis (2⁸ = 256).
+Por que usar o Byte?
+    O byte é útil quando precisamos armazenar valores inteiros pequenos 
+    e queremos utilizar apenas 8 bits para sua representação.
+    Por exemplo, quando sabemos que os valores estarão 
+    sempre entre -128 e 127, podemos utilizar o tipo byte em vez de tipos inteiros maiores,
+    dessa forma utilizar somente o espaço necessário de memória.
 
-short	16 bits	short x = 1000;	Inteiro
-int	32 bits	int x = 100000;	Inteiro, o mais usado
-long	64 bits	long x = 100000L;	Inteiro grande
-float	32 bits	float x = 3.14f;	Número decimal
-double	64 bits	double x = 3.14;	Decimal, maior precisão
-char	16 bits	char x = 'A';	Um caractere Unicode
-boolean	JVM-dependente*	boolean x = true;	true ou false
+
+
+Short — Inteiro curto
+
+O que é um Short?
+
+    Um short ocupa 16 bits (2 bytes) de memória e pode armazenar valores inteiros no intervalo de:
+    -32.768 até 32.767
+    Isso acontece porque um short possui 16 bits:
+    0000000000000000
+
+    Como cada bit pode assumir dois valores (0 ou 1), temos:
+    2¹⁶ = 65.536 valores possíveis.
+    
+    Como o Java utiliza 16 bits com sinal, representados pelo sistema de complemento de dois, 
+    esses 65.536 valores são distribuídos entre números negativos, zero e números positivos.
+
+Por que o intervalo é de -32.768 até 32.767?
+
+    Em um short de 16 bits, o primeiro bit participa da representação do sinal e, 
+    no complemento de dois, possui peso negativo.
+
+    Os pesos dos 16 bits são:
+    -32.768 16.384 8.192 4.096 2.048 1.024 512 256 128 64 32 16 8 4 2 1
+
+    Assim:
+    1000000000000000 = -32.768
+    0111111111111111 = +32.767
+
+    Portanto, o intervalo completo é:
+    -32.768 até +32.767
+
+    Ou seja:
+    -32.768 ... -1 | 0 | +1 ... +32.767
+
+Por que o short consegue armazenar mais valores que o byte?
+
+    A diferença está na quantidade de bits.
+    O byte possui 8 bits:
+    2⁸ = 256 valores
+
+    Por isso:
+    -128 até 127
+
+    Já o short possui 16 bits:
+    2¹⁶ = 65.536 valores
+
+    Por isso:
+    -32.768 até 32.767
+
+    Quanto maior a quantidade de bits, maior é a quantidade de valores que podem ser representados.
+
+Por que usar o Short?
+
+    O short é útil quando precisamos armazenar valores inteiros maiores que o limite do byte, 
+    mas que ainda estão dentro do intervalo de -32.768 até 32.767.
+
+    Dessa forma, quando trabalhamos com valores que cabem nesse intervalo, 
+    o short pode ser utilizado em situações em que queremos representar um inteiro utilizando 16 bits, 
+    dessa forma utilizar somente o espaço necessário de memória
+
+
+
+Int — Inteiro
+O que é um Int?
+
+    Um int ocupa 32 bits (4 bytes) de memória e pode armazenar valores inteiros no intervalo de:
+    -2.147.483.648 até 2.147.483.647
+
+    Isso acontece porque um int possui 32 bits:
+    00000000000000000000000000000000
+
+    Como cada bit pode assumir dois valores (0 ou 1), temos:
+    2³² = 4.294.967.296 valores possíveis.
+
+    Como o Java utiliza 32 bits com sinal, representados pelo 
+    sistema de complemento de dois, esses valores são distribuídos entre 
+    números negativos, zero e números positivos.
+
+Por que o intervalo é de -2.147.483.648 até 2.147.483.647?
+
+    Para números inteiros com sinal usando complemento de dois, a fórmula é:
+    -2ⁿ⁻¹ até 2ⁿ⁻¹ - 1
+
+    Como o int possui 32 bits:
+    -2³¹ até 2³¹ - 1
+    Portanto:
+    -2.147.483.648 até 2.147.483.647
+
+Por que usar o Int?
+
+    O int é o tipo inteiro mais utilizado quando precisamos armazenar números 
+    que não possuem casas decimais.
+
+    É adequado quando o valor está dentro do intervalo de:
+    -2.147.483.648 até 2.147.483.647
+    dessa forma utilizar somente o espaço necessário de memória.
+
+
+
+Long — Inteiro longo
+O que é um Long?
+
+    Um long ocupa 64 bits (8 bytes) de memória e pode armazenar valores inteiros no intervalo de:
+    -9.223.372.036.854.775.808 até 9.223.372.036.854.775.807
+
+    Um long possui 64 bits:
+    0000000000000000000000000000000000000000000000000000000000000000
+
+    Como temos 64 bits:
+    2⁶⁴ = 18.446.744.073.709.551.616 valores possíveis.
+
+    Como o Java utiliza 64 bits com sinal, representados pelo sistema de complemento de dois, temos:
+    -2⁶³ até 2⁶³ - 1
+
+    Ou seja:
+    -9.223.372.036.854.775.808 até +9.223.372.036.854.775.807
+
+Por que usar o Long?
+
+    O long é utilizado quando precisamos armazenar números inteiros muito maiores do que aqueles 
+    suportados pelo int.
+
+    Por exemplo, pode ser utilizado para valores como grandes contadores, 
+    identificadores numéricos ou cálculos que ultrapassam o limite do int.
+
+
+
+Float — Número real
+O que é um Float?
+
+    O float é utilizado para armazenar números reais, ou seja, números que podem possuir casas decimais.
+    Ele ocupa 32 bits (4 bytes) de memória.
+
+    Diferentemente de byte, short, int e long, o float não utiliza complemento de dois para 
+    representar o número inteiro completo.
+    Ele utiliza o padrão IEEE 754, representando o número por meio de:
+
+    1 bit de sinal
+    8 bits de expoente
+    23 bits de fração (mantissa)
+    ┌──────┬──────────┬───────────────────────┐
+    │Sinal │ Expoente │       Fração          │
+    │  1   │    8     │          23           │
+    └──────┴──────────┴───────────────────────┘
+                = 32 bits
+Quais valores o Float pode armazenar?
+
+    O float consegue representar aproximadamente valores de:
+    ±3,40282347 × 10³⁸
+
+    até valores positivos/negativos muito pequenos, aproximadamente:
+    ±1,4 × 10⁻⁴⁵
+
+    Além disso, possui valores especiais como:
+
+    Infinity e -Infinity (Representa um valor maior do que o maior valor finito que 
+    o float consegue representar.)
+    
+    NaN (Not a Number) (Ele aparece quando uma operação de ponto flutuante produz 
+    um resultado indefinido ou que não pode ser representado como um número real.)
+
+O que é importante entender sobre o Float?
+
+    O float consegue representar números muito grandes e muito pequenos, 
+    mas não consegue representar todos os números decimais exatamente.
+
+    Por exemplo, determinados valores como 0,1 podem não ser armazenados exatamente na memória.
+    Por isso, o float possui precisão limitada.
+
+Por que usar o Float?
+
+    O float é utilizado quando precisamos armazenar números com casas decimais e 
+    queremos utilizar 32 bits de memória.
+    Porém, quando a precisão é mais importante, geralmente utilizamos double.
+
+
+
+Double — Número real de dupla precisão
+O que é um Double?
+    O double também é utilizado para armazenar números reais com casas decimais.
+    Ele ocupa 64 bits (8 bytes) de memória.
+
+    Assim como o float, o double utiliza o padrão IEEE 754.
+
+    Sua representação possui:
+    1 bit de sinal
+    11 bits de expoente
+    52 bits de fração
+    ┌──────┬─────────────┬──────────────────────────────────────┐
+    │Sinal │  Expoente   │              Fração                  │
+    │  1   │     11      │                  52                  │
+    └──────┴─────────────┴──────────────────────────────────────┘
+                             = 64 bits
+Quais valores o Double pode armazenar?
+
+    O double consegue representar aproximadamente valores de:
+    ±1,7976931348623157 × 10³⁰⁸
+
+    até valores muito próximos de zero, aproximadamente:
+    ±4,9 × 10⁻³²⁴
+
+    Assim como o float, também possui:
+    Infinity
+    -Infinity
+    NaN
+
+Qual a diferença entre Float e Double?
+
+    A principal diferença está no tamanho e na precisão:
+
+    Tipo	Tamanho	Precisão aproximada
+    float	32 bits	~7 dígitos decimais
+    double	64 bits	~15–16 dígitos decimais
+
+    Por isso, o double consegue representar números com maior precisão que o float.
+
+Por que usar o Double?
+
+    O double é utilizado quando precisamos trabalhar com números reais e maior precisão.
+    No Java, ele é normalmente a escolha padrão para cálculos com números de ponto flutuante.
+
+
+
+Char — Caractere
+O que é um Char?
+
+    O char é utilizado para armazenar um único caractere.
+    Ele ocupa 16 bits (2 bytes) de memória.
+
+    Diferentemente dos tipos inteiros com sinal, o char do Java é um tipo sem sinal (unsigned).
+
+    Por isso, seu intervalo é:
+    0 até 65.535
+
+    Como possui 16 bits:
+    2¹⁶ = 65.536 valores possíveis.
+
+    0000000000000000
+
+    O char utiliza esses valores para representar unidades de código UTF-16.
+    Por exemplo:
+
+    'A'
+    'B'
+    '1'
+    '?'
+
+    Cada um desses valores pode ser armazenado em uma variável char.
+
+    Exemplos
+    'A' → caractere A
+    'B' → caractere B
+    '7' → caractere 7
+
+    É importante lembrar que:
+
+    '7'
+
+    é um char, enquanto:
+
+    7
+    é um número inteiro.
+
+Por que usar o Char?
+
+O char é utilizado quando precisamos armazenar um único caractere.
+Por exemplo:
+char letra = 'A';
+
+
+
+Boolean — Verdadeiro ou falso
+O que é um Boolean?
+
+    O boolean é utilizado para representar valores lógicos.
+    Ele possui apenas dois valores possíveis:
+
+    true
+    false
+
+    Ou seja:
+    true = verdadeiro
+    false = falso
+
+Por que usar o Boolean?
+
+    O boolean é utilizado quando precisamos representar 
+    uma condição lógica, principalmente em estruturas de decisão e repetição.
+
+    Por exemplo:
+
+    boolean maiorDeIdade = idade >= 18;
+
+    O resultado será:
+
+    true
+    ou:
+    false
