@@ -10,7 +10,7 @@ public class program {
         byte idadeMichaelIniciou = 10; // Representação -128 a 127
         char sexo = 'M'; // Representação 0 até 65.535
         int vendasBillieJean = 10000000; // Representação -2,1 bilhões a 2,1 bilhões
-        long spotifyBillieJean = 2000000000; // Representação -9,2 quiintilhões a 9,2 quintilhões
+        long spotifyBillieJean = 2000000000L; // Representação -9,2 quiintilhões a 9,2 quintilhões
         short anoLancamentoBillieJean = 1983; // Representação -32.768 a 32.767
         float mediaOuvintesFloat; // (Precisão simples com até aproximadamente 7 casas decimais)
         double mediaOuvintesDouble; // (Precisão dupla com até aproxidamente 16 casas decimais)
