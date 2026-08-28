@@ -21,7 +21,7 @@ public class program {
         mediaOuvintesDouble = spotifyBillieJean / (2026 - 2013) * 365; // Media de ouvintes no spotify desde o
                                                                        // lançamento dentro do spotify
         System.out.println("***************************************");
-        System.out.printf("Informações do Michael Jackson:");
+        System.out.printf("Informações do Michael Jackson");
         System.out.printf("%n%nData de nascimento: %d/%d/%d%n", diaNascimento, mesNascimento, anoNascimento);
         System.out.printf("Idade que Michael começou a cantar: %d%n", idadeMichaelIniciou);
         System.out.printf("Sexo: %c%n", sexo);
@@ -31,8 +31,8 @@ public class program {
         System.out.printf("Quantidade de vendas: %d milhões%n", vendasBillieJean);
         System.out.printf("Totais de stream no Spotify: %d bilhões%n", spotifyBillieJean);
         System.out.printf("(Float) Média de ouvintes desde o lançamento no spotify: %f%n", mediaOuvintesFloat);
-        System.out.printf("(Double) Média de ouvintes desde o lançamento no spotify: %f%n%n", mediaOuvintesDouble);
-        System.out.printf("É o rei do pop: %b%n", ehReiDoPop);
+        System.out.printf("(Double) Média de ouvintes desde o lançamento no spotify: %f%n", mediaOuvintesDouble);
+        System.out.printf("É o rei do pop: %b%n%n", ehReiDoPop);
         System.out.println("***************************************");
     }
 }
