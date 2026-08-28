@@ -14,6 +14,7 @@ public class program {
         short anoLancamentoBillieJean = 1983; // Representação -32.768 a 32.767
         float mediaOuvintesFloat; // (Precisão simples com até aproximadamente 7 casas decimais)
         double mediaOuvintesDouble; // (Precisão dupla com até aproxidamente 16 casas decimais)
+        boolean ehReiDoPop = true; // Representação true ou false (1 ou 0)
 
         mediaOuvintesFloat = spotifyBillieJean / (2026 - 2013) * 365; // Media de ouvintes no spotify desde o lançamento
                                                                       // dentro do spotify
@@ -31,6 +32,7 @@ public class program {
         System.out.printf("Totais de stream no Spotify: %d bilhões%n", spotifyBillieJean);
         System.out.printf("(Float) Média de ouvintes desde o lançamento no spotify: %f%n", mediaOuvintesFloat);
         System.out.printf("(Double) Média de ouvintes desde o lançamento no spotify: %f%n%n", mediaOuvintesDouble);
+        System.out.printf("É o rei do pop: %b%n", ehReiDoPop);
         System.out.println("***************************************");
     }
 }
