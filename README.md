@@ -14,13 +14,13 @@ Em java há 8 tipos primitivos, podendo ser separado em grupos. Inteiro, Ponto f
 - float: Armazena números decimais de 32 bits (precisão simples).
 - double: Armazena números decimais de 64 bits (precisão dupla, o padrão para decimais)
 
-#### Caractere 
+### Caractere 
 - char: Armazena um único caractere Unicode de 16 bits (ex: 'a', 'Z')
 
 ### Lógico
 - boolean: Armazena um valor verdadeiro ou falso (true ou false / 1 ou 0)
 
-## Como esses tipos estão dentro da memória ?
+## Como esses tipos são representados e funcionam na memória ?
 | Tipo | Espaço na Memória     | Tipo de Dado    | Valor Padrão (Default) | Intervalo de Valores Suportados                        |
 |-------|----------------------|-----------------|------------------------|--------------------------------------------------------|
 | byte  | 8 bits (1 byte)      | Inteiro         |            0           |                     -128 a 127                         |
@@ -30,4 +30,27 @@ Em java há 8 tipos primitivos, podendo ser separado em grupos. Inteiro, Ponto f
 |float  | 32 bits (4 bytes)    |Ponto Flutuante  |            0.0f        |               Precisão simples (IEEE 754)              |
 |double | 64 bits (8 bytes)    |Ponto Flutuante  |            0.0d        |               Precisão dupla (IEEE 754)                |
 |char   | 16 bits (2 bytes)    |Caractere Unicode|          '\u0000'      |            '\u0000' (0) a '\uffff' (65.535)            |
-|boolean|Variável (veja abaixo)|  Lógico         |           false        |               Apenas true ou false
+|boolean|Variável (veja abaixo)|  Lógico         |           false        |               Apenas true ou false                     |
+
+## O que é casting em Java?
+Casting em Java é o ato de transformar um dado de um tipo em outro. Isso acontece de duas formas: com tipos primitivos (como transformar double em int) ou com objetos de classes diferentes que possuem relação de herança (Casting em objetos não foram abordados aqui)
+
+Nós podemos realizar casting em tipos primitivos sem risco de perda de dados respeitando uma ordem entre eles: 
+
+**byte → short → int → long → float → double**
+
+### Casting entre tipos primitivos
+- Widening (implícito, automático) é quando você converte de um tipo "menor" para um "maior", o Java faz sozinho, sem perigo de perda de dados
+```
+int numero = 10;
+double numeroDouble = numero; // int -> double, automático
+```
+- Narrowing (explícito, precisa do cast) é quando você converte de um tipo "maior" para um "menor", há risco de perder informação. Por isso o Java exige que você seja explícito, usando o tipo entre parênteses.
+```
+double valor = 9.78;
+int valorInt = (int) valor; // vira 9, a parte decimal é descartada
+```
+```
+int numeroGrande = 300;
+byte numeroByte = (byte) numeroGrande; // pode dar resultado inesperado (overflow)
+```
