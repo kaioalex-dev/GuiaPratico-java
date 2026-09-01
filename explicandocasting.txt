@@ -1,0 +1,23 @@
+Casting é o processo de converter um tipo de dado em outro tipo compatível. Ele pode ser feito automaticamente ou de forma explícita, quando colocamos o tipo desejado entre parênteses.
+Por exemplo, podemos converter um int para double:
+
+Exemplo:
+int numero = 10;
+double valor = numero;
+
+Nesse caso, o Java faz a conversão automaticamente.
+Já para converter um double para int, precisamos fazer o casting:
+
+Exemplo:
+double valor = 10.5;
+int numero = (int) valor;
+
+System.out.println(numero);
+
+O resultado será 10, pois a parte decimal é descartada.
+O casting também pode ser usado com objetos. Por exemplo:
+
+Animal animal = new Cachorro();
+Cachorro cachorro = (Cachorro) animal;
+
+Nesse caso, estamos dizendo ao Java que o objeto animal deve ser tratado como um Cachorro. Portanto, o casting é útil quando precisamos converter ou tratar um valor ou objeto como outro tipo compatível.
